@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Service Provider</title>
+</head>
+<body>
+	<h1 style="text-align:center;">SERVICE HOME PAGE</h1>
+	<hr>
+	<ul style="list-style-type: none; text-align:center;">
+	  <li>
+	  	<a href="my-home-page" th:href="@{~/my-home-page/{service-provider-id}(service-provider-id=${userID})}">Home</a> &nbsp; &nbsp; &nbsp; 
+		<a href="view-all-orders" th:href="@{/view-all-orders/{service-provider-id}(service-provider-id=${userID})}">Order</a> &nbsp; &nbsp; &nbsp;
+		<a href="my-profile" th:href="@{~/my-profile/{service-provider-id}(service-provider-id=${userID})}">MyProfile</a> &nbsp; &nbsp; &nbsp;	
+	  </li>
+	 </ul> 
+	 <hr style="width:60%;" />
+	 <ul style="list-style-type: none;">
+	  <li style="text-align: left; margin-left:270px;">
+		<h2 th:text="'Welcome ' + ${userID}">  </h2>
+		<h3 th:text="'Total Number of Services Provided: ' + ${countOfService}"> </h3>
+		<h3 th:text="'Revenue generated through sales: $' + ${totalEarning}"> </h3>
+	  </li>
+	</ul>
+	<div style="text-align:center;">
+		<a href="get-new-service-view" th:href="@{/get-new-service-view/{service-provider-id}(service-provider-id=${userID})}">Add Service</a> &nbsp; &nbsp; &nbsp;
+		<a href="view-all-services" th:href="@{/view-all-services/{service-provider-id}(service-provider-id=${userID})}">View Services</a> &nbsp; &nbsp; &nbsp;
+		
+	</div>
+	</body>
+</html>

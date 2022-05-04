@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Service Genie</title>
+    <link th:href="@{/public/bootstrap.min.css}" rel="stylesheet">
+    <style>
+h1 {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+<br>
+<div class="container">
+
+    <h1>CUSTOMER ORDER PAGE</h1>
+    <p th:text="${msg}"></p>
+    <br>
+    <ul class="list-group list-group-horizontal">
+        <li class="list-group-item">
+            <a th:href="@{/view-customer-home}">Home</a> &nbsp; &nbsp; &nbsp;
+            <a th:href="@{/buy-service}">Buy Service</a> &nbsp; &nbsp; &nbsp;
+            <a th:href="@{/view-customer-offers}">Offers</a> &nbsp; &nbsp; &nbsp;
+            <a th:href="@{/view-customer-orders}">Orders</a> &nbsp; &nbsp; &nbsp;
+            <a th:href="@{/view-customer-profile}">Profile</a>
+            <a href="">Reviews</a> &nbsp; &nbsp; &nbsp;
+        </li>
+        <hr style="width:60%;" >
+
+    </ul>
+    <br>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Service Name</th>
+            <th scope="col">price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <form th:each="order: ${orderList}" method="get">
+
+            <tr>
+                <td th:text="${order.orderID}" />
+                <td th:text="${order.serviceProviderID}" />
+                <td th:text="${order.orderAmount}" />
+
+            </tr>
+        </form>
+        <br>
+        <form th:action="@{/view-customer-home}" method="get">
+            <button type="submit" class="btn btn-success" >Go Home</button>
+        </form>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
